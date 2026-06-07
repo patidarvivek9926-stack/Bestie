@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dedicated to My Bestie ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>For My Bestie ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-color: #ffe6e6;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
@@ -16,188 +16,269 @@
             overflow-x: hidden;
         }
 
-        /* Music Player Button */
+        /* Glassmorphism Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(255, 105, 180, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header h1 {
+            font-size: 2.2rem;
+            color: #ff4d6d;
+            margin: 0;
+        }
+        .header p {
+            font-size: 1rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Music Player */
         #music-player {
             position: fixed;
-            bottom: 20px;
+            bottom: 25px;
             right: 20px;
             z-index: 1000;
-            background: #ff4d4d;
+            background: #ff4d6d;
             color: white;
-            padding: 15px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            padding: 12px 20px;
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        #music-player audio {
-            display: none; /* Hide default player, we use JS to play */
+            font-size: 0.9rem;
+            cursor: pointer;
         }
 
-        /* Slides Container */
-        .slide {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+        /* Section Styling */
+        .section {
+            padding: 30px 15px;
             text-align: center;
-            border-bottom: 2px dashed #ffb3b3;
         }
-
-        /* Typography */
-        h1 {
-            font-size: 2.5rem;
-            color: #ff4d4d;
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.8rem;
-            color: #ff3333;
+        .section-title {
+            font-size: 1.5rem;
+            color: #333;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #555;
-            max-width: 90%;
+        .section-title::after {
+            content: '';
+            width: 50%;
+            height: 3px;
+            background: #ff4d6d;
+            position: absolute;
+            bottom: -5px;
+            left: 25%;
+            border-radius: 5px;
         }
 
-        /* Image Styling */
-        .img-container {
+        /* Card Style */
+        .card {
             background: white;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            margin: 20px 0;
-            width: 90%;
+            padding: 10px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin: 10px auto;
             max-width: 350px;
         }
-        .img-container img {
+        .card img, .card video {
             width: 100%;
-            border-radius: 15px;
+            border-radius: 10px;
             object-fit: cover;
         }
         .caption {
-            font-weight: 600;
-            margin-top: 15px;
-            color: #ff4d4d;
-            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 10px;
+            color: #ff4d6d;
+            font-size: 1rem;
+            padding-bottom: 5px;
         }
 
-        /* Fun Grid */
-        .grid {
+        /* Horizontal Scroll (For 7 Photos) */
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 15px;
+            padding: 10px 0;
+            -ms-overflow-style: none; /* Hide scrollbar */
+            scrollbar-width: none;
+        }
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        .scroll-item {
+            scroll-snap-align: center;
+            flex-shrink: 0;
+            width: 85%;
+            max-width: 300px;
+        }
+
+        /* Grid Layout (For multiple photos/videos) */
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            width: 100%;
+            gap: 10px;
             max-width: 400px;
-            margin-top: 20px;
+            margin: 0 auto;
         }
-        .grid-item {
-            background: white;
-            padding: 15px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .grid-item i {
-            font-size: 2rem;
-            color: #ff4d4d;
-            margin-bottom: 10px;
+        .grid-2 img, .grid-2 video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* End Screen */
-        .end-screen {
-            background: #ff4d4d;
+        /* Footer */
+        .footer {
+            background: #ff4d6d;
             color: white;
-        }
-        .end-screen h1, .end-screen p {
-            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 20px;
         }
 
     </style>
 </head>
 <body>
 
+    <!-- Hidden Audio Player -->
     <div id="music-player">
-        <i class="fa-solid fa-music"></i>
-        <span>Tap Anywhere to Play Music</span>
+        <i class="fa-solid fa-play"></i>
+        <span>Tap to Play Music</span>
         <audio id="bg-music" loop>
             <source src="music.mp3" type="audio/mpeg">
         </audio>
     </div>
 
-    <div class="slide">
-        <h1>Happy Best Friend's Day! 🎉</h1>
-        <p>Meri favourite insaan aur sabse badi nautanki ke liye ek chhota sa surprise.</p>
-        <i class="fa-solid fa-arrow-down" style="font-size: 2rem; color: #ff4d4d; margin-top: 30px; animation: bounce 2s infinite;"></i>
+    <!-- Header -->
+    <div class="header">
+        <h1>Happy Bestie Day! ✨</h1>
+        <p>A digital museum of our madness & memories</p>
     </div>
 
-    <div class="slide">
-        <h2>The "Nautanki" Exhibit A</h2>
-        <div class="img-container">
-            <img src="funny1.jpg" alt="Funny Photo">
-            <div class="caption">Jab tu aisi ajeeb shakal banati hai 😂</div>
-        </div>
-        <p>Sachi bata, ye shakal sirf mere saamne banati hai ya sabko darati hai?</p>
-    </div>
-
-    <div class="slide">
-        <h2>Partners in Crime</h2>
-        <div class="img-container">
-            <img src="us1.jpg" alt="Our Photo">
-            <div class="caption">Humari sabse normal photo ❤️</div>
-        </div>
-        <p>I don't say it enough, but thank you for being my therapist and partner in every crazy thing.</p>
-    </div>
-
-    <div class="slide">
-        <h2>No Filter. No Shame.</h2>
-        <div class="img-container">
-            <img src="funny2.jpg" alt="Funny Photo 2">
-            <div class="caption">Ye bhootni kon hai? 👻</div>
-        </div>
-        <p>I promise I'll delete this... maybe after 50 years! Tab tak ye mera secret weapon hai.</p>
-    </div>
-
-    <div class="slide">
-        <h2>Why You Are The Best</h2>
-        <div class="grid">
-            <div class="grid-item">
-                <i class="fa-solid fa-brain"></i>
-                <p><b>Pagalpanti</b><br>100% Roz</p>
-            </div>
-            <div class="grid-item">
-                <i class="fa-solid fa-user-secret"></i>
-                <p><b>Secrets</b><br>Safe with us</p>
-            </div>
-            <div class="grid-item">
-                <i class="fa-solid fa-pizza-slice"></i>
-                <p><b>Foodie</b><br>Always ready</p>
-            </div>
-            <div class="grid-item">
-                <i class="fa-solid fa-heart"></i>
-                <p><b>Bond</b><br>Unbreakable</p>
-            </div>
+    <!-- Section 1: Her Normal Photos (2) -->
+    <div class="section">
+        <h2 class="section-title">The "Aesthetic" You 🌸</h2>
+        <p style="color: #666; font-size: 0.9rem;">Jab tu actually normal aur pyari lagti hai.</p>
+        <div class="grid-2">
+            <img src="her-normal-1.jpg" alt="Her Normal 1">
+            <img src="her-normal-2.jpg" alt="Her Normal 2">
         </div>
     </div>
 
-    <div class="slide end-screen">
-        <h1 style="font-size: 3rem;">Forever?</h1>
-        <h1 style="font-size: 4rem;">Forever.</h1>
-        <p style="margin-top: 20px; font-weight: bold;">Happy Best Friend's Day!</p>
-        <p style="font-size: 0.9rem; margin-top: 50px;">Made with ❤️ by Tera Best Friend</p>
+    <!-- Section 2: Her Normal Videos (2) -->
+    <div class="section">
+        <h2 class="section-title">Main Character Energy 🎬</h2>
+        <div class="grid-2">
+            <!-- Videos set to autoplay like GIFs without sound so they don't clash with music -->
+            <video src="her-vid-normal-1.mp4" autoplay loop muted playsinline></video>
+            <video src="her-vid-normal-2.mp4" autoplay loop muted playsinline></video>
+        </div>
     </div>
 
+    <!-- Section 3: Us (7 Normal Photos) - Horizontal Scroll -->
+    <div class="section" style="background: #fff0f3; border-radius: 20px; margin: 0 10px;">
+        <h2 class="section-title">Us Through The Times ♾️</h2>
+        <p style="color: #666; font-size: 0.9rem;">Swipe to see our premium bond! 👉</p>
+        
+        <div class="scroll-container">
+            <div class="scroll-item card">
+                <img src="us-normal-1.jpg" alt="Us 1">
+                <div class="caption">Memory #1</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-2.jpg" alt="Us 2">
+                <div class="caption">Memory #2</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-3.jpg" alt="Us 3">
+                <div class="caption">Memory #3</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-4.jpg" alt="Us 4">
+                <div class="caption">Memory #4</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-5.jpg" alt="Us 5">
+                <div class="caption">Memory #5</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-6.jpg" alt="Us 6">
+                <div class="caption">Memory #6</div>
+            </div>
+            <div class="scroll-item card">
+                <img src="us-normal-7.jpg" alt="Us 7">
+                <div class="caption">Forever Us ❤️</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 4: Her Funny Photos (3) -->
+    <div class="section">
+        <h2 class="section-title">The Real You (Nautanki) 🤡</h2>
+        <p style="color: #666; font-size: 0.9rem;">Ye sab main internet pe leak karne wala hu.</p>
+        
+        <div class="card">
+            <img src="her-funny-1.jpg" alt="Her Funny 1">
+            <div class="caption">Exhibit A 👽</div>
+        </div>
+        <div class="card">
+            <img src="her-funny-2.jpg" alt="Her Funny 2">
+            <div class="caption">Kaun hai ye bhootni? 👻</div>
+        </div>
+        <div class="card">
+            <img src="her-funny-3.jpg" alt="Her Funny 3">
+            <div class="caption">Peak pagalpanti! 😂</div>
+        </div>
+    </div>
+
+    <!-- Section 5: Us Funny Photo (1) -->
+    <div class="section">
+        <h2 class="section-title">Together We Share 1 Braincell 🧠</h2>
+        <div class="card">
+            <img src="us-funny-1.jpg" alt="Us Funny">
+            <div class="caption">Koi humein normal kyu samjhega? 🤦‍♂️</div>
+        </div>
+    </div>
+
+    <!-- Section 6: Her Funny Videos (2) -->
+    <div class="section">
+        <h2 class="section-title">Live Action Tota / Monkey 🐒</h2>
+        <div class="grid-2">
+            <video src="her-vid-funny-1.mp4" autoplay loop muted playsinline></video>
+            <video src="her-vid-funny-2.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <p style="color: #666; font-size: 0.9rem; margin-top: 15px;">Thanks for making my life 100x more entertaining!</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2>Happy Best Friend's Day! 🥳</h2>
+        <p style="opacity: 0.8; font-size: 0.9rem;">Duniya idhar ki udhar ho jaye, par tu humesha meri bestie rahegi.</p>
+        <p style="margin-top: 30px; font-weight: bold;">Made with ❤️ by Tera Bhai/Best Friend</p>
+    </div>
+
+    <!-- Music Control Script -->
     <script>
         document.body.addEventListener('click', function() {
             var audio = document.getElementById('bg-music');
+            var player = document.getElementById('music-player');
             var playerText = document.querySelector('#music-player span');
+            var playerIcon = document.querySelector('#music-player i');
+            
             if (audio.paused) {
                 audio.play();
                 playerText.innerText = "Music Playing 🎶";
+                playerIcon.className = "fa-solid fa-pause";
             }
         });
     </script>
