@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dedicated to My Bestie ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #ffe6e6;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Music Player Button */
+        #music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: #ff4d4d;
+            color: white;
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #music-player audio {
+            display: none; /* Hide default player, we use JS to play */
+        }
+
+        /* Slides Container */
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px dashed #ffb3b3;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            color: #ff3333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            max-width: 90%;
+        }
+
+        /* Image Styling */
+        .img-container {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            width: 90%;
+            max-width: 350px;
+        }
+        .img-container img {
+            width: 100%;
+            border-radius: 15px;
+            object-fit: cover;
+        }
+        .caption {
+            font-weight: 600;
+            margin-top: 15px;
+            color: #ff4d4d;
+            font-size: 1.2rem;
+        }
+
+        /* Fun Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        .grid-item {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .grid-item i {
+            font-size: 2rem;
+            color: #ff4d4d;
+            margin-bottom: 10px;
+        }
+
+        /* End Screen */
+        .end-screen {
+            background: #ff4d4d;
+            color: white;
+        }
+        .end-screen h1, .end-screen p {
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="music-player">
+        <i class="fa-solid fa-music"></i>
+        <span>Tap Anywhere to Play Music</span>
+        <audio id="bg-music" loop>
+            <source src="music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="slide">
+        <h1>Happy Best Friend's Day! 🎉</h1>
+        <p>Meri favourite insaan aur sabse badi nautanki ke liye ek chhota sa surprise.</p>
+        <i class="fa-solid fa-arrow-down" style="font-size: 2rem; color: #ff4d4d; margin-top: 30px; animation: bounce 2s infinite;"></i>
+    </div>
+
+    <div class="slide">
+        <h2>The "Nautanki" Exhibit A</h2>
+        <div class="img-container">
+            <img src="funny1.jpg" alt="Funny Photo">
+            <div class="caption">Jab tu aisi ajeeb shakal banati hai 😂</div>
+        </div>
+        <p>Sachi bata, ye shakal sirf mere saamne banati hai ya sabko darati hai?</p>
+    </div>
+
+    <div class="slide">
+        <h2>Partners in Crime</h2>
+        <div class="img-container">
+            <img src="us1.jpg" alt="Our Photo">
+            <div class="caption">Humari sabse normal photo ❤️</div>
+        </div>
+        <p>I don't say it enough, but thank you for being my therapist and partner in every crazy thing.</p>
+    </div>
+
+    <div class="slide">
+        <h2>No Filter. No Shame.</h2>
+        <div class="img-container">
+            <img src="funny2.jpg" alt="Funny Photo 2">
+            <div class="caption">Ye bhootni kon hai? 👻</div>
+        </div>
+        <p>I promise I'll delete this... maybe after 50 years! Tab tak ye mera secret weapon hai.</p>
+    </div>
+
+    <div class="slide">
+        <h2>Why You Are The Best</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <i class="fa-solid fa-brain"></i>
+                <p><b>Pagalpanti</b><br>100% Roz</p>
+            </div>
+            <div class="grid-item">
+                <i class="fa-solid fa-user-secret"></i>
+                <p><b>Secrets</b><br>Safe with us</p>
+            </div>
+            <div class="grid-item">
+                <i class="fa-solid fa-pizza-slice"></i>
+                <p><b>Foodie</b><br>Always ready</p>
+            </div>
+            <div class="grid-item">
+                <i class="fa-solid fa-heart"></i>
+                <p><b>Bond</b><br>Unbreakable</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide end-screen">
+        <h1 style="font-size: 3rem;">Forever?</h1>
+        <h1 style="font-size: 4rem;">Forever.</h1>
+        <p style="margin-top: 20px; font-weight: bold;">Happy Best Friend's Day!</p>
+        <p style="font-size: 0.9rem; margin-top: 50px;">Made with ❤️ by Tera Best Friend</p>
+    </div>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('bg-music');
+            var playerText = document.querySelector('#music-player span');
+            if (audio.paused) {
+                audio.play();
+                playerText.innerText = "Music Playing 🎶";
+            }
+        });
+    </script>
+
+</body>
+</html>
