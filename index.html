@@ -101,14 +101,14 @@
             padding-bottom: 5px;
         }
 
-        /* Horizontal Scroll (For 7 Photos) */
+        /* Horizontal Scroll */
         .scroll-container {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 15px;
             padding: 10px 0;
-            -ms-overflow-style: none; /* Hide scrollbar */
+            -ms-overflow-style: none;
             scrollbar-width: none;
         }
         .scroll-container::-webkit-scrollbar {
@@ -121,7 +121,7 @@
             max-width: 300px;
         }
 
-        /* Grid Layout (For multiple photos/videos) */
+        /* Grid Layout */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -145,7 +145,6 @@
             padding: 40px 20px;
             margin-top: 20px;
         }
-
     </style>
 </head>
 <body>
@@ -179,13 +178,12 @@
     <div class="section">
         <h2 class="section-title">Main Character Energy 🎬</h2>
         <div class="grid-2">
-            <!-- Videos set to autoplay like GIFs without sound so they don't clash with music -->
             <video src="her-vid-normal-1.mp4" autoplay loop muted playsinline></video>
             <video src="her-vid-normal-2.mp4" autoplay loop muted playsinline></video>
         </div>
     </div>
 
-    <!-- Section 3: Us (7 Normal Photos) - Horizontal Scroll -->
+    <!-- Section 3: Us (5 Normal Photos) - Horizontal Scroll -->
     <div class="section" style="background: #fff0f3; border-radius: 20px; margin: 0 10px;">
         <h2 class="section-title">Us Through The Times ♾️</h2>
         <p style="color: #666; font-size: 0.9rem;">Swipe to see our premium bond! 👉</p>
@@ -209,14 +207,6 @@
             </div>
             <div class="scroll-item card">
                 <img src="us-normal-5.jpg" alt="Us 5">
-                <div class="caption">Memory #5</div>
-            </div>
-            <div class="scroll-item card">
-                <img src="us-normal-6.jpg" alt="Us 6">
-                <div class="caption">Memory #6</div>
-            </div>
-            <div class="scroll-item card">
-                <img src="us-normal-7.jpg" alt="Us 7">
                 <div class="caption">Forever Us ❤️</div>
             </div>
         </div>
@@ -264,7 +254,7 @@
     <div class="footer">
         <h2>Happy Best Friend's Day! 🥳</h2>
         <p style="opacity: 0.8; font-size: 0.9rem;">Duniya idhar ki udhar ho jaye, par tu humesha meri bestie rahegi.</p>
-        <p style="margin-top: 30px; font-weight: bold;">Made with ❤️ by Tera Best Friend</p>
+        <p style="margin-top: 30px; font-weight: bold;">Made with ❤️ by Tera Bhai/Best Friend</p>
     </div>
 
     <!-- Music Control Script -->
